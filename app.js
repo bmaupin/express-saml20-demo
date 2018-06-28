@@ -1,6 +1,7 @@
 // body-parser is required to parse the request body (req.body)
 const bodyParser = require('body-parser');
 const express = require('express');
+const helmet = require('helmet');
 const saml = require('saml20');
 
 const port = process.env.PORT || 3000;
@@ -9,6 +10,8 @@ const port = process.env.PORT || 3000;
 const memberIdSamlAttributeUrn = 'urn:oid:0.9.2342.19200300.100.1.3'
 
 const app = express();
+
+app.use(helmet());
 
 // Parse application/x-www-form-urlencoded requests
 app.use(bodyParser.urlencoded({ extended: false }));
