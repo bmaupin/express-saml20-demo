@@ -26,7 +26,7 @@ app.post('/validatesaml', (req, res, next) => {
   let options = {
     // TODO: This bypasses SAML response expiration validation, remove this in production
     bypassExpiration: true,
-    publicKey: process.env.SAML_IDP_CERT,
+    publicKey: process.env.SAML_IDP_PUBLIC_KEY,
   };
 
   saml.validate(decodedSamlResponse, options, (err, profile) => {
